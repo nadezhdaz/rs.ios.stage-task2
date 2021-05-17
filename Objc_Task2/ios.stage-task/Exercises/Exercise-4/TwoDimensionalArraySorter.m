@@ -37,13 +37,13 @@
         NSArray *sortedDescendingStringsArray = [stringsArray sortedArrayUsingDescriptors:@[sortDescendingDescriptor]];
         NSArray *sortedNumbersArray = [numbersArray sortedArrayUsingDescriptors:@[sortDescriptor]];
         
-        if (hasStringsSubarrays) {
+        if (hasMixedSubarrays) {
+            NSArray *mixedArray = @[sortedNumbersArray, sortedDescendingStringsArray];
+            return mixedArray;
+        } else if (hasStringsSubarrays) {
             return sortedStringsArray;
         } else if (hasNumberSubarrays) {
             return sortedNumbersArray;
-        } else if (hasMixedSubarrays) {
-            NSArray *mixedArray = @[sortedNumbersArray, sortedDescendingStringsArray];
-            return mixedArray;
         }
     }
     
